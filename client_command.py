@@ -2,6 +2,13 @@
 import asyncio
 import websockets
 
+# Ip adress to be configured
+
+uri: str = 'ws://localhost:8765'
+
+############################
+
+
 class WebSocketClient:
     def __init__(self, uri: str = 'ws://localhost:8765'):
         self.uri = uri
@@ -26,6 +33,6 @@ class WebSocketClient:
             print(f"[ERROR] Cannot connect to {self.uri}")
 
 if __name__ == "__main__":
-    client = WebSocketClient()
+    client = WebSocketClient(uri)
     while(True):
         asyncio.run(client.run())

@@ -6,9 +6,19 @@ from typing import Set
 import server_actions
 import time
 
+# Ip address to be configured
+
+ip = '192.168.0.100'
+set_port = 8765
+
+#############################
+
 
 class WebSocketServer:
-    def __init__(self, host: str = '192.168.0.100', port: int = 8765):
+    def __init__(self):
+        global ip, set_port
+        host = ip
+        port = set_port
         self.host = host
         self.port = port
         self.connected_clients: Set[WebSocketServerProtocol] = set()
